@@ -32,7 +32,7 @@ struct Transition {
     }
 };
 
-bool readInput();
+bool readInput(string input);
 void makeChange(Transition transition, string& currState, int& counterOneValue, int& counterTwoValue);
 bool validTrans(Transition transition, string leadingSymbol, int counterOneValue,
                 int counterTwoValue, string currState);

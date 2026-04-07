@@ -18,18 +18,19 @@ int main(int argc, char* argv[]) {
     else
         return 1;
     create2CA(fileName);
-    while (true) {
-        cout << (readInput() ? "----ACCEPT" : "----REJECT") << endl;
+    string input;
+    while (getline(cin, input)) {
+        cout << (readInput(input) ? "----ACCEPT" : "----REJECT") << endl;
     }
     return 0;
 }
 
-bool readInput() {
+bool readInput(string input) {
     string currState = "#";
     int counterOneValue = 0;
     int counterTwoValue = 0;
-    string input;
-    getline(cin, input);
+    // string input;
+    // getline(cin, input);
     bool change = true;
 
     while (change) {
