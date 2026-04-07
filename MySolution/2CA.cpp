@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
         return 1;
     create2CA(fileName);
     while (true) {
-        cout << (readInput() ? "ACCEPT" : "REJECT") << endl;
+        cout << (readInput() ? "----ACCEPT" : "----REJECT") << endl;
     }
     return 0;
 }
@@ -29,13 +29,13 @@ bool readInput() {
     int counterOneValue = 0;
     int counterTwoValue = 0;
     string input;
-    cin >> input;
+    getline(cin, input);
     bool change = true;
 
     while (change) {
         cout << currState << ", " << input << ", " << counterOneValue << ", " << counterTwoValue << endl;
         change = false;
-        string leadingSymbol = (input.size() > 0) ? string(1,input.at(0)) : leadingSymbol = "";
+        string leadingSymbol = (input.size() > 0) ? string(1,input.at(0)) : "";
         //string leadingSymbol(1,input.at(0));
         Transition* epsilonTrans = nullptr;
         //cout << transitions.size();
