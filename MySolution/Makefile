@@ -9,9 +9,6 @@ my2CA.o: 2CA.cpp functionHeaders.h
 my2CA :my2CA.o
 	$(link) $@ $^
 
-test : my2CA
-	./$<
-
 clean:
 	rm my2CA
 	rm my2CA.o

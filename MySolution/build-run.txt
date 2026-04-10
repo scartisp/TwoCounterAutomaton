@@ -1,0 +1,4 @@
+Build:
+    make my2CA -B
+Run:
+    ./my2CA
