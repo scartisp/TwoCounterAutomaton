@@ -31,9 +31,29 @@ struct Transition {
         this->changeCounterTwo = t.changeCounterTwo;
     }
 };
-
+/**
+ * function that does the simulation. consumes the input and determines if it rejects or fails
+ * @param {string} the input string that will be read by the 2ca simulation 
+ * @return {bool} boolean for if it rejects or accepts (reject= false, accept = true)
+ */
 bool readInput(string input);
+/**
+ * helper function for readInput that determines the next state and what counters to change/how
+ * @param {Transition} transition that is taken by the readInput function
+ * @param {string&} the name of the state which becomes the new current state
+ * @param {int&} value held by counter 1
+ * @param {int&} value held by counter 2
+ */
 void makeChange(Transition transition, string& currState, int& counterOneValue, int& counterTwoValue);
+/**
+ * helper function for readInput that determines if a transition is valid or not
+ * @param {Transition} the transition that we are checking for validness
+ * @param {string} the first character of the input string (as a string)
+ * @param {int} value held by counter 1
+ * @param {int} value held by counter 2
+ * @param {string} the current state of the 2CA
+ * @return {bool} boolean for if a transition is valid or not
+ */
 bool validTrans(Transition transition, string leadingSymbol, int counterOneValue,
                 int counterTwoValue, string currState);
 

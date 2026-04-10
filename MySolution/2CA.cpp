@@ -30,17 +30,13 @@ bool readInput(string input) {
     string currState = "#";
     int counterOneValue = 0;
     int counterTwoValue = 0;
-    // string input;
-    // getline(cin, input);
     bool change = true;
 
     while (change) {
         cout << currState << ", " << input << ", " << counterOneValue << ", " << counterTwoValue << endl;
         change = false;
         string leadingSymbol = (input.size() > 0) ? string(1,input.at(0)) : "";
-        //string leadingSymbol(1,input.at(0));
         Transition* epsilonTrans = nullptr;
-        //cout << transitions.size();
         for (const auto& t: transitions) {
             if (validTrans(t, leadingSymbol, counterOneValue, counterTwoValue, currState)) {
                 if (t.input == " ") {
@@ -54,15 +50,12 @@ bool readInput(string input) {
                 }
             }
         }
-        if (epsilonTrans != nullptr && !change) {
-          //  cout << "episoln" << endl;
+        if (epsilonTrans != nullptr && !change) { // if there is an epsilon trans and no other trans, take epsilon
             makeChange(*epsilonTrans, currState, counterOneValue, counterTwoValue);
             change = true;
         }
         delete epsilonTrans;
     }
-   // cout << change << endl;
-    //cout << currState << ", " << input.size() << ", " << counterOneValue << ", " << counterTwoValue << endl;
     if (counterOneValue == 0 && counterTwoValue == 0 && input == "")
         return true;
     return false;
@@ -80,15 +73,10 @@ void makeChange(Transition transition, string& currState, int& counterOneValue, 
     } else if (transition.changeCounterTwo == '-' && counterTwoValue > 0) {
         --counterTwoValue;
     }
-    //cout << counterTwoValue << endl;
 }
 
 bool validTrans(Transition transition, string leadingSymbol,
     int counterOneValue, int counterTwoValue, string currState) {
-        // if (transition.currState == "#copy_back") {
-        //     cout << (transition.currState == currState);
-        //     cout << ()
-        // }
         if (transition.counterOneState == '=' && counterOneValue != 0) {
         return false;
        } else if (transition.counterOneState == '>' && counterOneValue == 0) {
