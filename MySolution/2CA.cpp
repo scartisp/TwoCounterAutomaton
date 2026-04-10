@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
     while (getline(cin, input)) {
         cout << (readInput(input) ? "----ACCEPT" : "----REJECT") << endl;
     }
+    cout <<  endl;
     return 0;
 }
 
